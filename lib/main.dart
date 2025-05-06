@@ -1,43 +1,38 @@
+import 'package:examen2parcial/pagina_inicial.dart';
 import 'package:flutter/material.dart';
+import 'pagina_FloatingActionButton.dart';
+import 'pagina_RotatedBox.dart';
+import 'pagina_FittedBox.dart';
+import 'pagina_ChoiceChip.dart';
+import 'pagina_Draggable.dart';
+import 'pagina_Tooltip.dart';
+import 'pagina_NullAwareOperators.dart';
+import 'pagina_FutureBuilder.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MiRutas());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiRutas extends StatelessWidget {
+  const MiRutas({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Rutas entre paginas',
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const PantallaUno(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/pantalla2': (context) => const MyRotatedBox(),
+        '/pantalla3': (context) => const MyFittedBox(),
+        '/pantalla4': (context) => const MyChoiceChip(),
+        '/pantalla5': (context) => const MyDraggable(),
+        '/pantalla6': (context) => const MyTooltip(),
+        '/pantalla7': (context) => MyNullAwareOperators(),
+        '/pantalla8': (context) => const MyFutureBuilder(),
+        '/pantalla9': (context) => const MyFloatingActionButton(),
+      },
     );
   }
 }
